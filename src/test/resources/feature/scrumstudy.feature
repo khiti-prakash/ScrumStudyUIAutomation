@@ -10,16 +10,19 @@ Feature: Scrumstudy Website Validation
 
   Scenario: Verify all menus are present and navigation works
 
-    Then I should see 8 menus present with names "Why Scrum?", "Certification", "Class", "Partners", "SBOK Guide", "Free Resources", "Popular Scrum Tools", "About Us"
+    Then I should see 8 menus present with names "Why Scrum?", "Certification", "Classes", "Partners", "SBOK® Guide", "Free Resources", "Popular Scrum Tools", "About Us"
     When I navigate to each menu one by one
     Then I should verify the page loads correctly for each menu
 
-  Scenario: Verify SBOK Guide download option
+  Scenario: Verify Language and country
 
-    When I click on "Download Free SBOK Guide"
-    Then the SBOK Guide page should open
+    Then Verify Bydefault "English" should show in language dropdown
+    Then Verify Bydefault "India" should show in country dropdown
+    When i click on language dropdwon
+    Then I should see 6 language are present in dropdown
+    And Language "English", "French", "German", "Italian", "Portuguese", "Spanish"
 
-  Scenario: Verify Get Scrum Master Certified button
 
-    When I click on "Get Scrum Master Certified"
-    Then I should see the Scrum Master Certification page
+  Scenario: Verify header button verification
+
+    Then I should see "Home", "Contact", "Register", "Login"
